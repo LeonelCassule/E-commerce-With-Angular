@@ -4,13 +4,58 @@
             <div class="card-header bg-primary">
                 <div class="row">
                     <div class="col-6">
-                        Product List
+                        Lista de Produto
                     </div>
                     <div class="col-6 text-end">
-                        <button class="btn btn-sm btn-sucess" (click)="openSidePanel()">New</button>
+                        <button class="btn btn-sm btn-sucess" (click)="openSidePanel()">Novo</button>
                     </div>
                 </div>
 
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Sku</label>
+                        <input type="text" [(ngModel)]= "productObj.productSku" class="form-control">
+                   </div>
+                   <div class="col-6">
+                    <label for="">Nome</label>
+                    <input type="text" [(ngModel)]= "productObj.productName" class="form-control">
+               </div>
+
+               <div class="row">
+                <div class="col-6">
+                    <label for="">Nome Abreviado</label>
+                    <input type="text" [(ngModel)]= "productObj.productShortName" class="form-control">
+               </div>
+               <div class="col-6">
+                <label for="">Preço</label>
+                <input type="text" [(ngModel)]= "productObj.productPrice" class="form-control">
+           </div>
+
+           <div class="row">
+            <div class="col-6">
+                <label for="">Categoria</label>
+                <select [(ngModel)]= "productObj.categoryId" class="form-select">
+                    <option *ngFor="let cate of categoryList" [value]="cate.categoryId">{{cate.gategoryName}}</option>
+                </select>
+
+           </div>
+           <div class="col-6">
+            <label for="">Prazo de Entrega</label>
+            <input type="text" [(ngModel)]= "productObj.delivryTimeSpan" class="form-control">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+                <label for="">Url da Imagem</label>
+                <input type="text" [(ngModel)]= "productObj.productImageUrl" class="form-control">
+           </div>
+           <div class="col-6">
+            <label for="">Descrição do Produto</label>
+            <input type="text" [(ngModel)]= "productObj.productDescription" class="form-control">
+       </div>
             </div>
             <div class="card-body">
 <div class="row">
@@ -56,10 +101,10 @@
             <div class="card-header bg-primary">
                 <div class="row">
                     <div class="col-6">
-                        New Product
+                        Novo Produto
                     </div>
                     <div class="col-6 text-end">
-                        <button class="btn btn-sm btn-sucess" (click)="closeSidePanel()">Close</button>
+                        <button class="btn btn-sm btn-sucess" (click)="closeSidePanel()">Fechar</button>
                     </div>
                 </div>
 
