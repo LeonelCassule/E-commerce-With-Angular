@@ -57,15 +57,27 @@
             <input type="text" [(ngModel)]= "productObj.productDescription" class="form-control">
        </div>
             </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-sucess">Reset</button>
+                    
+               </div>
+               <div class="col-6">
+                <button class="btn btn-sucess" (click)="onSave()">Create Product</button>
+           </div>
+                </div>
+
             <div class="card-body">
 <div class="row">
-    <div class="col-3">
+    <div class="col-3" *ngFor="let product  of productsyList">
         <div class="card">
-            <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+            <img class="card-img-top" [src]="product.productImageUrl" alt="Card image">
             <div class="card-body">
-              <h4 class="card-title">Fabio de Melo</h4>
-              <p class="card-text">Some example text.</p>
-              <a href="#" class="btn btn-primary">See Profile</a>
+              <h4 class="card-title">{{ product.productName }}</h4>
+              <p class="card-text">{{ product.CategoryName}}</p>
+              <a class="btn btn-primary" (click)="onEdit()">Edit</a>
+              <a class="btn btn-primary">Delete</a>
             </div>
           </div>
     </div>
@@ -74,9 +86,9 @@
         <div class="card">
             <img class="card-img-top" src="img_avatar1.png" alt="Card image">
             <div class="card-body">
-              <h4 class="card-title">Ester Zeferino</h4>
+              <h4 class="card-title">Leonel Cassul</h4>
               <p class="card-text">Some example text.</p>
-              <a href="#" class="btn btn-primary">Comprar</a>
+              <a href="#" class="btn btn-primary">Ver || Comprar</a>
             </div>
           </div>
     </div>

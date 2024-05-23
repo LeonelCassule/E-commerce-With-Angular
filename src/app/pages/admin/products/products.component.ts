@@ -28,13 +28,21 @@ export class ProductsComponent implements OnInit{
     };
 
     categoryList: any [] = [];
+    productsyList: any [] = [];
 
     constructor(private productSrv: ProductsService){}
   
      ngOnInit(): void {
          this.getAllCategory();
+         this.getProduct();
      }
 
+     getProduct(){
+      this.productSrv.getProduct().subscribe((res:any)=>{
+        this.productsyList = res.data
+
+      })
+     }
      getAllCategory(){
       this.productSrv.getProduct().subscribe((res:any)=>{
         this.categoryList = res.data
@@ -47,5 +55,22 @@ export class ProductsComponent implements OnInit{
 
     closeSidePanel(){
     this.isSidePanelVisible = false;
+    }
+    onEdit(){
+      
+    }
+
+    onSave(){
+      this.productSrv.saveProduct(this.productObj).subscribe((res:any)=>{
+        debugger;
+        if(res.result){
+          alert("Produto Created")
+          this.getProduct();
+        } else{
+          alert(res.message)
+        }
+
+      })
+
     }
 }
