@@ -3,6 +3,9 @@ export const Constant = {
      METHODS:  {
         GET_ALL_PRODUCT: '',
         GET_ALL_CATEGORY: 'GetAllCategory',
-        CREATE_PRODUCT: 'CreateProducty'
+        CREATE_PRODUCT: 'CreateProduct',
+        UPDATE_PRODUCT: 'UpdateProduct',
+        DELETE_PRODUCT: 'DeleteProductBtId',
+        
      }
 }

@@ -58,13 +58,14 @@
        </div>
             </div>
 
-            <div class="row">
-                <div class="col-6">
+            <div class="row pt-2">
+                <div class="col-6 text-center">
                     <button class="btn btn-sucess">Reset</button>
                     
                </div>
-               <div class="col-6">
-                <button class="btn btn-sucess" (click)="onSave()">Create Product</button>
+               <div class="col-6 text-center">
+                <button class="btn btn-sucess"  *ngIf="productObj.productId == 0" (click)="onSave()">Criar Produto</button>
+                <button class="btn btn-sucess" *ngIf="productObj.productId !== 0" (click)="onUpdate()">Actualizar Produto</button>
            </div>
                 </div>
 
@@ -76,8 +77,8 @@
             <div class="card-body">
               <h4 class="card-title">{{ product.productName }}</h4>
               <p class="card-text">{{ product.CategoryName}}</p>
-              <a class="btn btn-primary" (click)="onEdit()">Edit</a>
-              <a class="btn btn-primary">Delete</a>
+              <a class="btn btn-primary" (click)="onEdit(product)">Editar</a>
+              <a class="btn btn-danger mx-2" (click)="onDelete(product)">Eliminar</a>
             </div>
           </div>
     </div>

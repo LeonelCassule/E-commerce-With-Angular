@@ -56,8 +56,42 @@ export class ProductsComponent implements OnInit{
     closeSidePanel(){
     this.isSidePanelVisible = false;
     }
-    onEdit(){
-      
+    onEdit(item: any){
+     this.productObj = item;
+     this.openSidePanel();
+    }
+
+    onDelete(item: any){
+
+       const isDelete = confirm ('Are you Sure want to delete');
+      if(isDelete){
+      this.productSrv.deleteProduct(item.productId).subscribe((res:any)=>{
+        debugger;
+        if(res.result){
+          alert("Produto Eliminado")
+          this.getProduct();
+        } else{
+          alert(res.message)
+        }
+
+      })
+    }
+     
+    }
+
+    onUpdate(){
+      this.productSrv.updateProduct(this.productObj).subscribe((res:any)=>{
+        debugger;
+        if(res.result){
+          alert("Produto Actualizado")
+          this.getProduct();
+        } else{
+          alert(res.message)
+        }
+
+      })
+
+
     }
 
     onSave(){
